@@ -1,0 +1,8 @@
+---
+
+- name: Pull init file
+  git:
+    repo: "{{ init_git }}"
+    dest: "{{ lookup('env', 'HOME')}}"
+    version: "master"
+  

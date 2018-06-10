@@ -1,0 +1,19 @@
+---
+
+# Defines variables for the systools role
+
+# package names are specific to the distribution, which right now is Ubuntu
+packages:
+  - tmux
+  - vim
+  - zsh
+  - silversearcher-ag
+
+dotfiles_git: 'git@github.com:kaustubhkurve/dotfiles.git'
+dotfiles:
+  - src: "vim/.vimrc"
+    dest: ".vimrc"
+  - src: "tmux/.tmux.conf"
+    dest: ".tmux.conf"
+  - src: "zsh/.zshrc"
+    dest: ".zshrc"

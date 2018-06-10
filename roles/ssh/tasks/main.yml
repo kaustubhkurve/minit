@@ -1,0 +1,14 @@
+---
+
+# Setup up ssh access for the machine
+# I have a local backup of the ssh keys, and I just copy the keys back
+# The backup location is specified in the group vars
+
+- name: Copy .ssh folder to home
+  copy:
+    src: "{{ SSH_FOLDER_LOCATION }}"
+    dest: "{{ lookup('env', 'HOME') }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
+    mode: "u=rw,g=r"
+    directory_mode: "0640"

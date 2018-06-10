@@ -1,0 +1,20 @@
+---
+
+- name: Download versioned emacs tarball
+  get_url:
+    url: "{{ emacs.tarball.url }}"
+    dest: "{{ DOWNLOADS }}"
+
+- name: Download the signature file
+  get_url:
+    url: "{{ emacs.sig.url }}"
+    dest: "{{ DOWNLOADS }}"
+
+# TODO
+# - name: Verify the tarball
+
+- name: Extract the emacs tarball
+  shell: 'tar -xvzf {{ emacs.tarball.name }}'
+  args:
+    chdir: "{{ DOWNLOADS }}"
+

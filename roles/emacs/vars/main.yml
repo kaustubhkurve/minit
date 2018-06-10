@@ -1,0 +1,15 @@
+---
+
+version: 26.1
+
+emacs:
+  tarball:
+    name: "emacs-{{ EMACS_VERSION }}.tar.gz"
+    url: "ftp://ftp.gnu.org/pub/gnu/emacs/emacs-{{ version }}.tar.gz"
+  sig:
+    name: "emacs-{{ EMACS_VERSION }}.tar.gz.sig"
+    url: "ftp://ftp.gnu.org/pub/gnu/emacs/emacs-{{ version }}.tar.gz.sig"
+
+download_location: "{{ DOWNLOADS }}/emacs-{{ version }}"
+
+init_git: 'git@github.com:kaustubhkurve/.emacs.d.git'

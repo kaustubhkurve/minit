@@ -1,0 +1,11 @@
+---
+
+deb_apps:
+  - name: Google Chrome
+    url: 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+  - name: Slack
+    url: 'https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.1-amd64.deb'
+
+# Add more!
+packaged_apps:
+  - vlc

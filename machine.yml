@@ -1,0 +1,13 @@
+---
+# Provision the machine with whatever I need
+
+- name: My Init(MINIT)
+  hosts: local
+  roles:
+    - ssh
+    - emacs
+    - systools
+    - fonts
+    - apps
+
+

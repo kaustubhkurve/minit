@@ -1,0 +1,4 @@
+---
+
+DOWNLOADS: "{{ lookup('env', 'HOME')}}/Downloads/"
+SSH_FOLDER_LOCATION: ''

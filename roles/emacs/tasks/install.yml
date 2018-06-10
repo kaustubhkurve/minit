@@ -1,0 +1,24 @@
+---
+
+# Installing the build dependencies used by emacs package provided
+# by the distribution. Let's see if that works.
+- name: Install emacs build dependencies
+  apt:
+    pkg: emacs
+    state: build-dep
+  become: yes
+
+- name: Run Configure
+  shell: './configure'
+  args:
+    chdir: "{{ download_location }}"
+
+- name: Run Make
+  shell: 'make'
+  args:
+    chdir: "{{ download_location }}"
+
+- name: Run Make Install
+  shell: 'make install'
+  args:
+    chdir: "{{ download_location }}"
