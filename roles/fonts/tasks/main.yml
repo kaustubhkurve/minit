@@ -6,18 +6,19 @@
     dest: '{{ DOWNLOADS }}/source-code-pro.tar.gz'
 
 - name: Unzip Source Code Pro
-  shell: 'tar -xvzf source-code-pro.tar.gz'
-  arg:
-    chdir: '{{ DOWNLOADS }}'
+  unarchive:
+    src: '{{ DOWNLOADS }}/source-code-pro.tar.gz'
+    dest: '{{ DOWNLOADS }}'
 
 - name: Create Font directory
   shell: 'mkdir -p /usr/share/fonts/source-code-pro'
   become: yes
 
 - name: Install Source Code Pro Font
-  shell: 'cp source-code-pro/OTF/*.otf /usr/share/fonts/source-code-pro/'
-  arg:
-    chdir: '{{ DOWNLOADS }}'
+  copy:
+    src: '{{ item }}'
+    dest: '/usr/share/fonts/source-code-pro/'
+  with_fileglob: "{{ DOWNLOADS }}/source-code-pro-2.030R-ro-1.050R-it/OTF/*.otf"
   become: yes
 
 - name: Regenerate font cache
