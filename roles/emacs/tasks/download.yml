@@ -3,7 +3,7 @@
 - name: Download versioned emacs tarball
   get_url:
     url: "{{ emacs.tarball.url }}"
-    dest: "{{ DOWNLOADS }}"
+    dest: "{{ tar }}"
 
 - name: Download the signature file
   get_url:

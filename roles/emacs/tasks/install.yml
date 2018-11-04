@@ -8,17 +8,23 @@
     state: build-dep
   become: yes
 
+- name: Install additional packages
+  apt:
+    name: "{{ build_packages }}"
+  become: yes
+
 - name: Run Configure
   shell: './configure'
   args:
-    chdir: "{{ download_location }}"
+    chdir: "{{ source }}"
 
 - name: Run Make
   shell: 'make'
   args:
-    chdir: "{{ download_location }}"
+    chdir: "{{ source }}"
 
 - name: Run Make Install
   shell: 'make install'
   args:
-    chdir: "{{ download_location }}"
+    chdir: "{{ source }}"
+  become: yes

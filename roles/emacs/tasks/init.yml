@@ -3,6 +3,6 @@
 - name: Pull init file
   git:
     repo: "{{ init_git }}"
-    dest: "{{ lookup('env', 'HOME')}}"
+    dest: "{{ lookup('env', 'HOME')}}/.emacs.d"
     version: "master"
   

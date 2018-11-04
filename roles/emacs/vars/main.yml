@@ -4,12 +4,33 @@ version: 26.1
 
 emacs:
   tarball:
-    name: "emacs-{{ EMACS_VERSION }}.tar.gz"
+    name: "emacs-{{ version }}.tar.gz"
     url: "ftp://ftp.gnu.org/pub/gnu/emacs/emacs-{{ version }}.tar.gz"
   sig:
-    name: "emacs-{{ EMACS_VERSION }}.tar.gz.sig"
+    name: "emacs-{{ version }}.tar.gz.sig"
     url: "ftp://ftp.gnu.org/pub/gnu/emacs/emacs-{{ version }}.tar.gz.sig"
 
-download_location: "{{ DOWNLOADS }}/emacs-{{ version }}"
+source: "{{ DOWNLOADS }}/emacs-{{ version }}"
+tar: "{{ DOWNLOADS }}/emacs-{{ version }}.tar.gz"
 
-init_git: 'git@github.com:kaustubhkurve/.emacs.d.git'
+init_git: "git@github.com:kaustubhkurve/.emacs.d.git"
+
+build_packages:
+   - libm17n-dev
+   - m17n-db
+   - libotf-dev 
+   - libxpm4
+   - libxpm-dev
+   - libpng-dev
+   - libz3-dev 
+   - libjpeg-dev 
+   - libtiff-dev 
+   - libgif-dev 
+   - librsvg2-dev 
+   - libgtk2.0-dev
+   - texinfo 
+   - libx11-dev 
+   - libncurses5-dev 
+   - build-essential
+   - libgnutls28-dev
+
