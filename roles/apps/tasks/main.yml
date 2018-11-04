@@ -3,11 +3,12 @@
 - name: Install .deb applications
   apt:
     deb: '{{ item.url }}'
-  with_items: {{ deb_apps }}
+  with_items: "{{ deb_apps }}"
   become: yes
 
 - name: Install packaged applications
   apt:
     name: "{{ item }}"
     state: latest
+  with_items: "{{ packaged_apps }}"
   become: yes
