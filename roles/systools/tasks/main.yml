@@ -6,11 +6,8 @@
   apt:
     name: "{{item}}"
     state: latest
-  with_items: {{packages}}
+  with_items: "{{packages}}"
   become: yes
-
-- name: Set zsh as the default shell
-  shell: 'chsh -s $(which zsh)'
 
 - name: Install Oh-my-Zsh
   shell: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
@@ -18,7 +15,7 @@
 - name: Clone dotfiles repo
   git:
     repo: '{{ dotfiles_git }}'
-    dest: '{{ lookup("env", "HOME") }}'
+    dest: '{{ lookup("env", "HOME") }}/dotfiles'
     version: "master"
 
 - name: Setup dotfiles
@@ -27,4 +24,4 @@
     dest: "{{ lookup('env', 'HOME') }}/{{ item.dest }}"
     state: link
     force: yes
-  with_items: {{ dotfiles }}
+  with_items: "{{ dotfiles }}"
